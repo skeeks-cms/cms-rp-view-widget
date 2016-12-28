@@ -34,6 +34,25 @@ Example
 
 ```
 
+View file
+----------
+```php
+
+<?php
+/* @var $this yii\web\View */
+/* @var $widget \skeeks\cms\rpViewWidget\RpViewWidget */
+?>
+<? if ($attributes = $widget->rpAttributes) :  ?>
+    <? foreach ($attributes as $code ) :  ?>
+        <p>
+            <strong><?= $widget->model->relatedPropertiesModel->getRelatedProperty($code)->name; ?>:</strong>
+            <?= $widget->model->relatedPropertiesModel->getSmartAttribute($code); ?>
+        </p>
+    <? endforeach;  ?>
+<? endif;  ?>
+
+```
+
 ##Links
 * [Web site](http://cms.skeeks.com)
 * [Author](http://skeeks.com)
