@@ -18,10 +18,19 @@ or add
 "skeeks/cms-rp-view-widget": "*"
 ```
 
-Configuration app
+Example
 ----------
 
 ```php
+
+<? $widget = \skeeks\cms\rpViewWidget\RpViewWidget::beginWidget('product-properties', [
+    'model' => $model,
+    //'visible_properties' => ['color', 'material'],
+    //'visible_only_has_values' => true,
+    //'viewFile' => '@app/views/your-file',
+]); ?>
+    <? //$widget->viewFile = '';?>
+<? \skeeks\cms\rpViewWidget\RpViewWidget::end(); ?>
 
 ```
 
