@@ -43,7 +43,7 @@ View file
 /* @var $widget \skeeks\cms\rpViewWidget\RpViewWidget */
 ?>
 <? if ($attributes = $widget->rpAttributes) :  ?>
-    <? foreach ($attributes as $code ) :  ?>
+    <? foreach ($attributes as $code => $value) :  ?>
         <p>
             <strong><?= $widget->model->relatedPropertiesModel->getRelatedProperty($code)->name; ?>:</strong>
             <?= $widget->model->relatedPropertiesModel->getSmartAttribute($code); ?>

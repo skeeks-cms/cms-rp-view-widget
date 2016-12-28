@@ -164,6 +164,8 @@ class RpViewWidget extends WidgetRenderable
     }
 
     /**
+     * Smart visible code => value
+     *
      * @return array
      */
     public function getRpAttributes()
@@ -175,13 +177,17 @@ class RpViewWidget extends WidgetRenderable
         {
             foreach ($attributes as $attribute)
             {
-                if (
-                    ($this->visible_only_has_values && $rpm->getAttribute($attribute))
-                    ||
-                    !$this->visible_only_has_values
-                )
+                if (!$this->visible_only_has_values)
                 {
                     $result[] = $attribute;
+                    continue;
+                }
+
+                $value = $rpm->getSmartAttribute($attribute);
+                if ($value)
+                {
+                    $result[$attribute] = $value;
+                    continue;
                 }
             }
         }
@@ -190,6 +196,8 @@ class RpViewWidget extends WidgetRenderable
     }
 
     /**
+     * Only visible codes
+     *
      * @return array
      */
     public function getVisibleRpAttributes()
