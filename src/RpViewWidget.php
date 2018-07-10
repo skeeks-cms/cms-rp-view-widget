@@ -207,6 +207,7 @@ class RpViewWidget extends WidgetRenderable
             return (array) $this->visible_properties;
         } else
         {
+            $this->model->relatedPropertiesModel->initAllProperties();
             $attributes = $this->model->relatedPropertiesModel->toArray();
             if ($attributes)
             {
