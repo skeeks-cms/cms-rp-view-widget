@@ -183,7 +183,11 @@ class RpViewWidget extends WidgetRenderable
                     continue;
                 }
 
-                $value = $rpm->getSmartAttribute($attribute);
+                if ($rpm->getAttribute($attribute))
+                {
+                    $value = $rpm->getSmartAttribute($attribute);
+                }
+
                 if ($value)
                 {
                     $result[$attribute] = $value;
