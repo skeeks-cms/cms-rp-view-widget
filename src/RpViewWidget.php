@@ -179,14 +179,14 @@ class RpViewWidget extends WidgetRenderable
             {
                 if (!$this->visible_only_has_values)
                 {
-                    $result[] = $attribute;
+                    $result[$attribute] = $rpm->getAttributeAsHtml($attribute);
                     continue;
                 }
 
-                $value = $rpm->getSmartAttribute($attribute);
+                $value = $rpm->{$attribute};
                 if ($value)
                 {
-                    $result[$attribute] = $value;
+                    $result[$attribute] = $rpm->getAttributeAsHtml($attribute);
                     continue;
                 }
             }
