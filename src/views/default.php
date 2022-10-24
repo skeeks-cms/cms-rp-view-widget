@@ -12,7 +12,13 @@
     <? foreach ($attributes as $code => $value ) :  ?>
         <p>
             <strong><?= $widget->model->relatedPropertiesModel->getRelatedProperty($code)->name; ?>:</strong>
-            <?= $value; ?>
+            <?
+                if (filter_var($value, FILTER_VALIDATE_URL)) {
+                    echo "<a href='{$value}' target='_blank'>" . $value . "</a>";
+                } else {
+                    echo $value;
+                }
+             ?>
         </p>
     <? endforeach;  ?>
 <? endif;  ?>
