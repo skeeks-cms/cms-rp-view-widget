@@ -10,7 +10,7 @@
 ?>
 <? if ($attributes = $widget->rpAttributes) :  ?>
     <? foreach ($attributes as $code => $value ) :  ?>
-        <p>
+        <p id="sx-prop-<?php echo $code; ?>">
             <strong><?= $widget->model->relatedPropertiesModel->getRelatedProperty($code)->name; ?>:</strong>
             <?
                 if (filter_var($value, FILTER_VALIDATE_URL)) {
