@@ -217,6 +217,11 @@ class RpViewWidget extends WidgetRenderable
 
         return $result;
     }
+    
+    public function renderValue()
+    {
+        
+    }
 
     /**
      * @param $attribute
@@ -237,14 +242,18 @@ class RpViewWidget extends WidgetRenderable
         return $rp->id;
     }
 
-    public function getUrl($attribute, $cmsTree = null)
+    public function getUrl($attribute, $cmsTree = null, $value = null)
     {
         if ($cmsTree === null) {
             $cmsTree = \Yii::$app->cms->currentTree;
         }
 
         $rp = $this->model->relatedPropertiesModel->getRelatedProperty($attribute);
-        $value = $this->model->relatedPropertiesModel->getAttribute($attribute);
+        
+        if ($value === null) {
+            $value = $this->model->relatedPropertiesModel->getAttribute($attribute);
+        }
+        
 
         $savedFilter = null;
         if (in_array($rp->property_type, [PropertyType::CODE_LIST])) {
